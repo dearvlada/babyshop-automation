@@ -11,9 +11,13 @@ class NavigationTest(BaseCase):
                           }
 
     def test_basket(self):
-        # go to the goods page 123456
+        # go to the goods page
         self.get(self.base_url + 'edushape/s/2003')
         # click on the 1st position
         self.click('//article[1]')
-        #fmdhgfhdkh
+        # add to cart
+        self.click('//button[@class="product-form__btn btn"]')
+        # checkout
+        self.click('//a[@class="btn product-form__btn--go-to-cart"]')
+        #
         self.sleep(3)
