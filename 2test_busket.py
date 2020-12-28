@@ -15,5 +15,5 @@ class NavigationTest(BaseCase):
         self.get(self.base_url + 'edushape/s/2003')
         # click on the 1st position
         self.click('//article[1]')
-        #
+        #fmdhgfhdkh
         self.sleep(3)
