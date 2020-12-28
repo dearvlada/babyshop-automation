@@ -11,7 +11,7 @@ class NavigationTest(BaseCase):
                           }
 
     def test_basket(self):
-        # go to the goods page
+        # go to the goods page 123456
         self.get(self.base_url + 'edushape/s/2003')
         # click on the 1st position
         self.click('//article[1]')
