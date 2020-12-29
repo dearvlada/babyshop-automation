@@ -1,2 +1,0 @@
-from seleniumbase import BaseCase
-
