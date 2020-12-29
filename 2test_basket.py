@@ -10,7 +10,7 @@ class NavigationTest(BaseCase):
                           "Сlothing": ['//a[@data-class="babyclothes"]', self.base_url + "/clothing/s/619"]
                           }
 
-    def test_basket(self):
+    def test_add_to_basket_proceed_to_checkout_and_remove(self):
         # go to the goods page
         self.get(self.base_url + 'edushape/s/2003')
         # saving the name of 1st position
