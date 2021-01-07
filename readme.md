@@ -7,12 +7,30 @@ Test plan:
 3. Adding to the basket
 4. Proceed to checkout the basket
 5. Removing position from the basket
-6. Change language and location
-7. Checking switching the name and the price in a product cart
+6. Change language 
+7. Change location
 
 Test cases:
 
-a) 1001 Test add to basket, proceed to checkout and remove (name "main test add to basket"):
+a) Test 01 site open:
+   
+1. open the site
+2. click on the main menu to open section "clothing"
+3. check expected and opened section
+
+Expected result: Section "clothing" was opened
+
+b) Test 02 find the items through the search box:
+
+1. open the site
+2. write the name of item into the search box
+3. click on the button "search"
+4. getting and counting the elements
+5. checking expected and actual results
+
+Expected result: expected and actual results were matched
+
+c) Test 03 adding to basket, proceeding to checkout and removing:
 
  ** open page https://www.babyshop.com//edushape/s/2003
 1. click on the 1st position
@@ -23,4 +41,15 @@ a) 1001 Test add to basket, proceed to checkout and remove (name "main test add 
 
 Expected outcome: the page with text "Your cart is empty!"
 
-b) 1002 Test 
+
+d) Test 04 changing the language
+
+1. open the site
+2. go to the language switch
+3. select "Russian"
+4. go to the section Brands "D&G"
+
+Expected result: Page will be translated into Russian
+
+e) Test 05 change region:
+

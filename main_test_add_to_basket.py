@@ -5,11 +5,32 @@ class NavigationTest(BaseCase):
     # base url and vocabulary
     def setup_class(self):
         self.base_url = "https://www.babyshop.com/"
-        self.menu_dict = {"Brands": ['//a[@data-class="brand"]', self.base_url + "/brands/s/618"],
-                          "Сlothing": ['//a[@data-class="babyclothes"]', self.base_url + "/clothing/s/619"]
-                          }
 
-    def test_add_to_basket_proceed_to_checkout_and_remove(self):
+    def test01_site_open(self):
+        # open the site
+        self.get("https://www.babyshop.com")
+        # click on the main menu
+        self.click('//div[@class="navigation__item"][3]')
+        # getting current url and variable curr_url
+        curr_url = self.get_current_url()
+        # checking expected and actual url
+        self.assert_equal(curr_url, 'https://www.babyshop.com/clothing/s/619')
+
+
+    def test02_find_item_through_the_search_box(self):
+        self.get(self.base_url)
+        # send_keys - writing the text into the search box
+        self.send_keys('//*[@id="instant-search__input"]', "Sirona S i-Size Car Seat")
+        # click on the button "search"
+        self.click('//*[@id="instant-search__input"]')
+        self.sleep(2)
+        # getting and counting the elements
+        article_elements = self.find_visible_elements("//card__link")
+        # checking expected and actual results ТУТ ОШИБКУ ВЫДАЕТ, ПОСМОТРЕТЬ ПОЧЕМУ
+        self.assert_equal(len(article_elements), 6)
+
+
+    def test03_add_to_basket_proceed_to_checkout_and_remove(self):
         # go to the goods page
         self.get(self.base_url + 'edushape/s/2003')
         # saving the name of 1st position
@@ -33,3 +54,27 @@ class NavigationTest(BaseCase):
         self.sleep(1)
         self.assert_equal(empty_text, "Your cart is empty")
         self.sleep(1)
+
+    def test04_change_language(self):
+
+        self.get(self.base_url + 'dolce-gabbana/s/1495')
+        # getting text in Eng
+        eng_text = self.get_text('//article[1]/div[2]/h3/a/strong')
+        # go to the language switch
+        self.click('//div[@class="header__links header-links"]/a[1]')
+        # select "Russian"
+        self.click('//a[@title="Russian"]')
+        self.sleep(0.1)
+        # going to the section in Ru
+        self.get('https://ru.babyshop.com/dolce-gabbana/s/1495')
+        # getting text in Ru
+        ru_text = self.get_text('//article[1]/div[2]/h3/a/strong')
+        # texts are not equal
+        self.assert_not_equal(eng_text, ru_text)
+
+
+    def test05_change_region(self):
+
+ # go to the region switch
+        self.click('//div[@class="header__links header-links"]/a[1]')
+        self.click('//a[@title="USA"]')
