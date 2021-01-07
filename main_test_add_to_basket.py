@@ -1,9 +1,8 @@
-from selenium.webdriver.common.by import By
 from seleniumbase import BaseCase
 
 class NavigationTest(BaseCase):
 
-    # задаем базовый урл и переменную-словарь
+    # base url and vocabulary
     def setup_class(self):
         self.base_url = "https://www.babyshop.com/"
         self.menu_dict = {"Brands": ['//a[@data-class="brand"]', self.base_url + "/brands/s/618"],
