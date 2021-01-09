@@ -22,12 +22,12 @@ class NavigationTest(BaseCase):
         # send_keys - writing the text into the search box
         self.send_keys('//*[@id="instant-search__input"]', "Sirona S i-Size Car Seat")
         # click on the button "search"
-        self.click('//*[@id="instant-search__input"]')
+        self.click('//*[@id="instant-search"]/div[1]/button')
         self.sleep(2)
         # getting and counting the elements
-        article_elements = self.find_visible_elements("//card__link")
-        # checking expected and actual results ТУТ ОШИБКУ ВЫДАЕТ, ПОСМОТРЕТЬ ПОЧЕМУ
-        self.assert_equal(len(article_elements), 6)
+        article_elements = self.find_visible_elements('//article')
+        # checking expected and actual results
+        self.assert_equal(6, len(article_elements), 'Should show 6 baby seats')
 
 
     def test03_add_to_basket_proceed_to_checkout_and_remove(self):
