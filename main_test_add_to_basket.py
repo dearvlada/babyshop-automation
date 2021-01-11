@@ -71,10 +71,3 @@ class NavigationTest(BaseCase):
         ru_text = self.get_text('//article[1]/div[2]/h3/a/strong')
         # texts are not equal
         self.assert_not_equal(eng_text, ru_text)
-
-
-    def test05_change_region(self):
-
- # go to the region switch
-        self.click('//div[@class="header__links header-links"]/a[1]')
-        self.click('//a[@title="USA"]')

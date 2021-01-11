@@ -8,7 +8,6 @@ Test plan:
 4. Proceed to checkout the basket
 5. Removing position from the basket
 6. Change language 
-7. Change location
 
 Test cases:
 
@@ -50,6 +49,3 @@ d) Test 04 changing the language
 4. go to the section Brands "D&G"
 
 Expected result: Page will be translated into Russian
-
-e) Test 05 change region:
-
